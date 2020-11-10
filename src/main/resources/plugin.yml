@@ -1,0 +1,6 @@
+name: AntiAccountShare
+version: ${project.version}
+main: me.rages.antiaccountshare.AntiAccountShare
+authors: [Rages]
+description: Prevents players from sharing accounts
+website: https://reliableplugins.com

@@ -1,0 +1,19 @@
+menu-title: '&2User Agreement!'
+
+# verification menu popup in seconds
+verify-check-timer: 86400
+
+accept-button:
+  item: GREEN_STAINED_GLASS_PANE
+  name: '&a&lACCEPT'
+  lore:
+    - '&7Clicking &a&naccept&7 you agree to lock your'
+    - '&7IP address to your account!'
+
+deny-button:
+  item: RED_STAINED_GLASS_PANE
+  name: '&c&lDeny'
+  lore:
+    - '&7Clicking &c&ndeny&7 will return you to hub!'
+
+kick-message: '&cYou must accept the agreements!'
