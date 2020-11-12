@@ -37,7 +37,7 @@ public class AntiAccountShare extends JavaPlugin implements Runnable {
 
         if (Files.isReadable(Paths.get(getDataFolder() + File.separator + "verified-users.json"))) {
             try (Reader reader = new FileReader(getDataFolder() + File.separator + "verified-users.json")) {
-                this.verifiedUsers = new Gson().fromJson(reader, new TypeToken<Map<UUID, Long>>() {}.getType());
+                this.verifiedUsers = new Gson().fromJson(reader, new TypeToken<Map<UUID, PlayerData>>() {}.getType());
             } catch (IOException e) {
                 getServer().getLogger().log(Level.SEVERE, "Failed to load user data!");
             }
@@ -70,6 +70,10 @@ public class AntiAccountShare extends JavaPlugin implements Runnable {
     public void addVerifiedUser(Player player) {
         PlayerData data = new PlayerData(System.currentTimeMillis() + (1000 * getConfig().getInt("verify-check-timer")), player.getAddress().getAddress().toString());
         this.verifiedUsers.put(player.getUniqueId(), data);
+    }
+
+    public boolean isDifferentIP(Player player) {
+        return (!getVerifiedUsers().get(player.getUniqueId()).getAddress().equals(player.getAddress().getAddress().toString()));
     }
 
     public Map<UUID, PlayerData> getVerifiedUsers() {
